@@ -23,9 +23,18 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
+    - name: Upload APK artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: apk-artifacts
+        path: app/build/outputs/apk/
+        if-no-files-found: warn
+
     - name: Upload build reports
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: build-reports
-        path: build/reports/
+        path: app/build/reports/
+        if-no-files-found: warn
