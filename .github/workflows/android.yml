@@ -21,7 +21,7 @@ jobs:
         cache: gradle
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build -v
 
     - name: Upload APK artifacts
       if: always()
